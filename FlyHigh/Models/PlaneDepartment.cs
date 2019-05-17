@@ -12,6 +12,6 @@ namespace FlyHigh.Models
         public int PlaneId { get; set; }
         public Plane Plane { get; set; }
         public int DepartmentId { get; set; }
-        public Department department { get; set; }
+        public Department Department { get; set; }
     }
 }
