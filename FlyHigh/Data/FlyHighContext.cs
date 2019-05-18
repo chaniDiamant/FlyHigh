@@ -27,5 +27,11 @@ namespace FlyHigh.Models
         public DbSet<FlyHigh.Models.Terminal> Terminal { get; set; }
 
         public DbSet<FlyHigh.Models.Ticket> Ticket { get; set; }
+
+        public DbSet<FlyHigh.Models.Destination> Destination { get; set; }
+
+        public DbSet<FlyHigh.Models.Flight> Flight { get; set; }
+
+        public DbSet<FlyHigh.Models.Order> Order { get; set; }
     }
 }
