@@ -23,5 +23,9 @@ namespace FlyHigh.Models
         public DbSet<FlyHigh.Models.Customer> Customer { get; set; }
 
         public DbSet<FlyHigh.Models.Plane> Plane { get; set; }
+
+        public DbSet<FlyHigh.Models.Terminal> Terminal { get; set; }
+
+        public DbSet<FlyHigh.Models.Ticket> Ticket { get; set; }
     }
 }
