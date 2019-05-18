@@ -14,9 +14,6 @@ namespace FlyHigh.Models
         [DisplayName("שם מטוס")]
         public string Name { get; set; }
 
-        [DisplayName("סוג מטוס")]
-        public string Model { get; set; }
-
         [DisplayName("מספר מושבים")]
         public int NumberOfSeats { get; set; }
 
