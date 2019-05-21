@@ -11,9 +11,10 @@ using System;
 namespace FlyHigh.Migrations
 {
     [DbContext(typeof(FlyHighContext))]
-    partial class FlyHighContextModelSnapshot : ModelSnapshot
+    [Migration("20190521140739_1245")]
+    partial class _1245
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

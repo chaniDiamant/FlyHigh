@@ -11,9 +11,10 @@ using System;
 namespace FlyHigh.Migrations
 {
     [DbContext(typeof(FlyHighContext))]
-    partial class FlyHighContextModelSnapshot : ModelSnapshot
+    [Migration("20190521180054_122232")]
+    partial class _122232
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,8 +73,7 @@ namespace FlyHigh.Migrations
 
             modelBuilder.Entity("FlyHigh.Models.Flight", b =>
                 {
-                    b.Property<int>("FlightNumber")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("FlightNumber");
 
                     b.Property<int?>("DestinationId");
 

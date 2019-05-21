@@ -21,7 +21,8 @@ namespace FlyHigh.Controllers
         // GET: PlaneDepartments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.PlaneDepartment.ToListAsync());
+            var flyHighContext = _context.PlaneDepartment.Include(p => p.Department).Include(p => p.Plane);
+            return View(await flyHighContext.ToListAsync());
         }
 
         // GET: PlaneDepartments/Details/5
@@ -33,6 +34,8 @@ namespace FlyHigh.Controllers
             }
 
             var planeDepartment = await _context.PlaneDepartment
+                .Include(p => p.Department)
+                .Include(p => p.Plane)
                 .SingleOrDefaultAsync(m => m.PlaneId == id);
             if (planeDepartment == null)
             {
@@ -45,6 +48,8 @@ namespace FlyHigh.Controllers
         // GET: PlaneDepartments/Create
         public IActionResult Create()
         {
+            ViewData["DepartmentName"] = new SelectList(_context.Department, "Name", "Name");
+            ViewData["PlaneId"] = new SelectList(_context.Plane, "PlaneId", "PlaneId");
             return View();
         }
 
@@ -53,7 +58,7 @@ namespace FlyHigh.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlaneId,DepartmentId")] PlaneDepartment planeDepartment)
+        public async Task<IActionResult> Create([Bind("PlaneId,DepartmentName")] PlaneDepartment planeDepartment)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +66,8 @@ namespace FlyHigh.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["DepartmentName"] = new SelectList(_context.Department, "Name", "Name", planeDepartment.DepartmentName);
+            ViewData["PlaneId"] = new SelectList(_context.Plane, "PlaneId", "PlaneId", planeDepartment.PlaneId);
             return View(planeDepartment);
         }
 
@@ -77,6 +84,8 @@ namespace FlyHigh.Controllers
             {
                 return NotFound();
             }
+            ViewData["DepartmentName"] = new SelectList(_context.Department, "Name", "Name", planeDepartment.DepartmentName);
+            ViewData["PlaneId"] = new SelectList(_context.Plane, "PlaneId", "PlaneId", planeDepartment.PlaneId);
             return View(planeDepartment);
         }
 
@@ -85,7 +94,7 @@ namespace FlyHigh.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlaneId,DepartmentId")] PlaneDepartment planeDepartment)
+        public async Task<IActionResult> Edit(int id, [Bind("PlaneId,DepartmentName")] PlaneDepartment planeDepartment)
         {
             if (id != planeDepartment.PlaneId)
             {
@@ -112,6 +121,8 @@ namespace FlyHigh.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["DepartmentName"] = new SelectList(_context.Department, "Name", "Name", planeDepartment.DepartmentName);
+            ViewData["PlaneId"] = new SelectList(_context.Plane, "PlaneId", "PlaneId", planeDepartment.PlaneId);
             return View(planeDepartment);
         }
 
@@ -124,6 +135,8 @@ namespace FlyHigh.Controllers
             }
 
             var planeDepartment = await _context.PlaneDepartment
+                .Include(p => p.Department)
+                .Include(p => p.Plane)
                 .SingleOrDefaultAsync(m => m.PlaneId == id);
             if (planeDepartment == null)
             {

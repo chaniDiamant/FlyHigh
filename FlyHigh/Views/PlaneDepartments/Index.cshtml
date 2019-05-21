@@ -12,9 +12,12 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.DepartmentId)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -22,12 +25,15 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DepartmentId)
+                @Html.DisplayFor(modelItem => item.Department.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PlaneId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PlaneId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PlaneId">Delete</a>
+                @Html.DisplayFor(modelItem => item.Plane.PlaneId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

@@ -11,8 +11,8 @@ using System;
 namespace FlyHigh.Migrations
 {
     [DbContext(typeof(FlyHighContext))]
-    [Migration("20190519105016_OpenDataBase")]
-    partial class OpenDataBase
+    [Migration("20190521175730_1245666")]
+    partial class _1245666
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,8 +73,7 @@ namespace FlyHigh.Migrations
 
             modelBuilder.Entity("FlyHigh.Models.Flight", b =>
                 {
-                    b.Property<int>("FlightNumber")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("FlightNumber");
 
                     b.Property<int?>("DestinationId");
 
@@ -131,20 +130,13 @@ namespace FlyHigh.Migrations
 
             modelBuilder.Entity("FlyHigh.Models.PlaneDepartment", b =>
                 {
-                    b.Property<int>("PlaneId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("DepartmentId");
+                    b.Property<int>("PlaneId");
 
                     b.Property<string>("DepartmentName");
 
-                    b.Property<int?>("PlaneId1");
-
-                    b.HasKey("PlaneId");
+                    b.HasKey("PlaneId", "DepartmentName");
 
                     b.HasIndex("DepartmentName");
-
-                    b.HasIndex("PlaneId1");
 
                     b.ToTable("PlaneDepartment");
                 });
@@ -237,11 +229,13 @@ namespace FlyHigh.Migrations
                 {
                     b.HasOne("FlyHigh.Models.Department", "Department")
                         .WithMany("PlaneDepartments")
-                        .HasForeignKey("DepartmentName");
+                        .HasForeignKey("DepartmentName")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("FlyHigh.Models.Plane", "Plane")
                         .WithMany("PlaneDepartments")
-                        .HasForeignKey("PlaneId1");
+                        .HasForeignKey("PlaneId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("FlyHigh.Models.Seat", b =>

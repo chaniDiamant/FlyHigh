@@ -4,13 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FlyHigh.Models
 {
     public class Flight
     {
-        [Key]
+      
         [DisplayName("מספר טיסה")]
+        
         public int FlightNumber { get; set; }
 
         [DisplayName("תאריך המראה")]

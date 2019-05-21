@@ -8,10 +8,9 @@ namespace FlyHigh.Models
 {
     public class PlaneDepartment
     {
-        [Key]
         public int PlaneId { get; set; }
         public Plane Plane { get; set; }
-        public int DepartmentId { get; set; }
+        public String DepartmentName { get; set; }
         public Department Department { get; set; }
     }
 }

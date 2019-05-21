@@ -33,3 +33,15 @@
         display: none;
     }
 }
+.navbar {
+    background-color: plum;
+   
+}
+
+.navbar-nav {
+    float: right;
+    
+}
+.navbar-inverse .navbar-nav > li > a {
+     color: black;
+}

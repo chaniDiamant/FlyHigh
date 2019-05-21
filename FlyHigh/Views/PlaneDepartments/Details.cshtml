@@ -11,14 +11,20 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.DepartmentId)
+            @Html.DisplayNameFor(model => model.Department)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.DepartmentId)
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Plane)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Plane.PlaneId)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.PlaneId">Edit</a> |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>

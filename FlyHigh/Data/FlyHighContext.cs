@@ -33,5 +33,23 @@ namespace FlyHigh.Models
         public DbSet<FlyHigh.Models.Flight> Flight { get; set; }
 
         public DbSet<FlyHigh.Models.Order> Order { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PlaneDepartment>()
+                .HasKey(t => new { t.PlaneId, t.DepartmentName });
+
+            modelBuilder.Entity<PlaneDepartment>()
+                .HasOne(pt => pt.Plane)
+                .WithMany(p => p.PlaneDepartments)
+                .HasForeignKey(pt => pt.PlaneId);
+
+            modelBuilder.Entity<PlaneDepartment>()
+                .HasOne(pt => pt.Department)
+                .WithMany(t => t.PlaneDepartments)
+                .HasForeignKey(pt => pt.DepartmentName);
+
+        }
     }
+
 }
+

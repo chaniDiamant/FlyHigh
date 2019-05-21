@@ -53,7 +53,7 @@ namespace FlyHigh.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlaneId,Name,Model,NumberOfSeats")] Plane plane)
+        public async Task<IActionResult> Create([Bind("PlaneId,Name,NumberOfSeats")] Plane plane)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace FlyHigh.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlaneId,Name,Model,NumberOfSeats")] Plane plane)
+        public async Task<IActionResult> Edit(int id, [Bind("PlaneId,Name,NumberOfSeats")] Plane plane)
         {
             if (id != plane.PlaneId)
             {

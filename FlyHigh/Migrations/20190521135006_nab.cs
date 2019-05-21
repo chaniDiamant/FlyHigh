@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FlyHigh.Migrations
 {
-    public partial class OpenDataBase : Migration
+    public partial class nab : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -103,27 +103,24 @@ namespace FlyHigh.Migrations
                 name: "PlaneDepartment",
                 columns: table => new
                 {
-                    PlaneId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DepartmentId = table.Column<int>(nullable: false),
-                    DepartmentName = table.Column<string>(nullable: true),
-                    PlaneId1 = table.Column<int>(nullable: true)
+                    PlaneId = table.Column<int>(nullable: false),
+                    DepartmentName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PlaneDepartment", x => x.PlaneId);
+                    table.PrimaryKey("PK_PlaneDepartment", x => new { x.PlaneId, x.DepartmentName });
                     table.ForeignKey(
                         name: "FK_PlaneDepartment_Department_DepartmentName",
                         column: x => x.DepartmentName,
                         principalTable: "Department",
                         principalColumn: "Name",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PlaneDepartment_Plane_PlaneId1",
-                        column: x => x.PlaneId1,
+                        name: "FK_PlaneDepartment_Plane_PlaneId",
+                        column: x => x.PlaneId,
                         principalTable: "Plane",
                         principalColumn: "PlaneId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -261,11 +258,6 @@ namespace FlyHigh.Migrations
                 name: "IX_PlaneDepartment_DepartmentName",
                 table: "PlaneDepartment",
                 column: "DepartmentName");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PlaneDepartment_PlaneId1",
-                table: "PlaneDepartment",
-                column: "PlaneId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Seat_PlaneId",
