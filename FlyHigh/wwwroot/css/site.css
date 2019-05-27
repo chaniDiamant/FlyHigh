@@ -34,7 +34,7 @@
     }
 }
 .navbar {
-    background-color: plum;
+    background-color:gainsboro;
    
 }
 
@@ -44,4 +44,12 @@
 }
 .navbar-inverse .navbar-nav > li > a {
      color: black;
+}
+#bar {
+    background-color: darkgray;
+    width: 1110px;
+    Height: 200px;
+}
+.navbar-inverse .navbar-brand {
+    color: black;
 }
