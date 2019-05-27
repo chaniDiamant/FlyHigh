@@ -19,19 +19,19 @@ namespace FlyHigh
             var host = BuildWebHost(args);
 
 
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
 
-                FlyHighContext context = services.GetRequiredService<FlyHighContext>();
+            //    FlyHighContext context = services.GetRequiredService<FlyHighContext>();
          
-                if (context.Flight.Count() == 0)
-                {
-                    for (int i = 0; i < 20; i++) 
-                    context.Add(new Flight() { FlightNumber =1000+i});
-                    context.SaveChanges();
-                }
-            }
+            //    if (context.Flight.Count() == 0)
+            //    {
+            //        for (int i = 0; i < 20; i++) 
+            //        context.Add(new Flight() { FlightNumber =1000+i});
+            //        context.SaveChanges();
+            //    }
+            //}
 
             host.Run();
         }

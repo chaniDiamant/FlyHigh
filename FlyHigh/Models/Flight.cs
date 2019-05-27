@@ -10,7 +10,7 @@ namespace FlyHigh.Models
 {
     public class Flight
     {
-      
+        [Key]
         [DisplayName("מספר טיסה")]
         
         public int FlightNumber { get; set; }
