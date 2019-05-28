@@ -34,7 +34,9 @@
     }
 }
 .navbar {
+
     background-color:gainsboro;
+    background-image: linear-gradient(to right, #4d94ff, #cce0ff)
    
 }
 
@@ -45,11 +47,14 @@
 .navbar-inverse .navbar-nav > li > a {
      color: black;
 }
-#bar {
-    background-color: gray;
-    width: 1110px;
-    Height: 200px;
-}
+
 .navbar-inverse .navbar-brand {
     color: black;
+}
+#grad1 {
+    margin: 0px auto;
+    width: 1500px;
+    Height: 200px;
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, #4d94ff, #cce0ff); /* Standard syntax (must be last) */
 }
