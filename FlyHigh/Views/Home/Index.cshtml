@@ -4,18 +4,11 @@
 <br/>
 <br/>
 <div>
-    <from class="myFrom">
-        <label></label>
-        <input placeholder="מוצא" />
-
-    </from>
-    <from class="myFrom1">
-        <label></label>
-        <input placeholder="יעד" />
-        <button type="button" class="btn btn-outline-secondary">חפש</button>
-
-       
-    </from>
+    <form asp-controller="Customers" asp-action="Index">
+        <input name="from" placeholder="מוצא" />
+        <input name="to" placeholder="יעד" />
+        <input type="submit" class="btn btn-outline-secondary" />
+    </form>
 </div>
 <br/>
 <div class="row">
@@ -84,7 +77,7 @@
     </div>
 </div>
 <br/>
-<div><p>ההיסטוריה של אל על שזורה בתולדות מדינת ישראל.
+<div><p style ="direction: rtl">ההיסטוריה של אל על שזורה בתולדות מדינת ישראל.
  
     לאורך עשרות שנים נגעה אל על ברגעי התהילה של המדינה המתפתחת, בשמחות, ברגעים הקשים והכואבים ובתהליכי פריצת הגבולות אל העולם. הסיפור של אל על הינו ההיסטוריה של המדינה. קווים ותמונות לדמותה.
 

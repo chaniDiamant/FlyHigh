@@ -48,6 +48,14 @@ namespace FlyHigh.Controllers
             return View();
         }
 
+
+        //public async Task<IActionResult> Search()
+        //{
+        //    var databaseContext = _context.Flight.Include(p => p.Destination).Include(ps => p).ThenInclude(s => s.Sale);
+        //    return View(await databaseContext.ToListAsync());
+        //}
+
+
         // POST: Customers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

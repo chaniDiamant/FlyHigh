@@ -52,9 +52,15 @@
     color: black;
 }
 #grad1 {
+    direction: rtl;
     margin: 0px auto;
     width: 1500px;
     Height: 200px;
     background-color: red; /* For browsers that do not support gradients */
     background-image: linear-gradient(to right, #4d94ff, #cce0ff); /* Standard syntax (must be last) */
+}
+.bar {
+  
+    background-color: #cccccc;
+
 }
